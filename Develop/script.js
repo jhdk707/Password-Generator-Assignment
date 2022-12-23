@@ -3,7 +3,7 @@ var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
 var numbers = '123456780';
 var symbols = '~!@#$%^&*()_+{}|][';
 var uppercaseLetters = lowercaseLetters.toUpperCase(); // converts lowercase letters to uppercase
-var lowerCaseLettersArray = lowercaseLetters.split(''); // converts letters in a string to an array with those letters (e.g. ['a', 'b', 'c', ...])
+var lowercaseLettersArray = lowercaseLetters.split(''); // converts letters in a string to an array with those letters (e.g. ['a', 'b', 'c', ...])
 var numbersArray = numbers.split('');
 var symbolsArray = symbols.split('');
 var uppercaseLettersArray = uppercaseLetters.split('');
@@ -48,21 +48,26 @@ function getPrompts () {
   console.log(passwordLength); {
       if ( passwordLength  < 8 || passwordLength > 128) {
       alert("Password length must be between 8 to 128 characters, please enter a different number");
-      return "Try again";
+      return "Not Correct";
     } 
 
+    if (confirm("Do you want to include LOWERCASE characters")) {
+      choiceArr = choiceArr.concat(lowercaseLettersArray);
+      console.log(choiceArr);
+      } 
+
     if (confirm("Do you want to include UPPERCASE characters")) {
-    choiceArr = choiceArr.concat(lowerCaseLettersArray);
+    choiceArr = choiceArr.concat(uppercaseLettersArray);
     console.log(choiceArr);
     } 
 
     if (confirm("Do you want to include NUMBERS characters")) {
-    choiceArr = (uppercaseLetters + lowerCaseLettersArray + numbersArray);
+      choiceArr = choiceArr.concat(numbersArray);
     console.log(choiceArr);
     }
 
     if (confirm("Do you want to include SPECIAL characters")) {
-    choiceArr = (uppercaseLetters + lowerCaseLettersArray + numbersArray + symbolsArray);
+      choiceArr = choiceArr.concat(symbolsArray);
     console.log(choiceArr);
     }
      return true;
