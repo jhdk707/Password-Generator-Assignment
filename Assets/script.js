@@ -46,15 +46,14 @@ function getPrompts () {
   // Prompt for password length 
   passwordLength = parseInt(prompt("Please select a password length between 8 and 128"));
   console.log(passwordLength); {
-      if ( passwordLength  < 8 || passwordLength > 128) {
-      alert("Password length must be between 8 to 128 characters, please enter a different number");
-      return "Not Correct";
+    if ( passwordLength  < 8 || passwordLength > 128) {
+      return alert("Password length must be between 8 to 128 characters, please enter a different number");
     } 
 
     if (confirm("Do you want to include LOWERCASE characters")) {
       choiceArr = choiceArr.concat(lowercaseLettersArray);
       console.log(choiceArr);
-      } 
+    } 
 
     if (confirm("Do you want to include UPPERCASE characters")) {
     choiceArr = choiceArr.concat(uppercaseLettersArray);
@@ -71,7 +70,7 @@ function getPrompts () {
     console.log(choiceArr);
     }
      return true;
-  };  
+  }; 
 }
 
 
